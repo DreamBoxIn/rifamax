@@ -7,7 +7,7 @@ export default function BuyTicket() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch('https://rifapomelo.vercel.app/api/numbers')
+    fetch('/api/numbers')
       .then(response => response.json())
       .then(data => setAvailableNumbers(data));
   }, []);
@@ -17,7 +17,7 @@ export default function BuyTicket() {
   };
 
   const handlePurchase = () => {
-    fetch('https://rifapomelo.vercel.app/api/purchase', {
+    fetch('/api/purchase', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export default function BuyTicket() {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          window.location.href = data.paymentLink;
+          window.location.href = `https://mpago.la/2gsf4Zk?number=${selectedNumber}`;
         } else {
           alert('Error: Número no disponible.');
         }
@@ -53,14 +53,12 @@ export default function BuyTicket() {
           ))}
         </div>
         {selectedNumber && (
-          <form action={`https://mpago.la/2gsf4Zk?number=${selectedNumber}`} method="GET">
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-            >
-              Comprar Número {selectedNumber}
-            </button>
-          </form>
+          <button
+            onClick={handlePurchase}
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
+          >
+            Comprar Número {selectedNumber}
+          </button>
         )}
       </div>
     </div>
