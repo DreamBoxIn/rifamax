@@ -31,7 +31,15 @@ export default function BuyTicket() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 to-orange-200 p-6">
-      <div className="max-w-xl w-full bg-white rounded-lg shadow-lg p-6">
+      <div className="relative max-w-xl w-full bg-white rounded-lg shadow-lg p-6">
+        <button
+          onClick={() => router.push('/')}
+          className="absolute top-2 left-2 text-gray-700 hover:text-gray-900"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
         <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-700">Comprar Ticket de Rifa</h1>
         <p className="text-lg text-center mb-6 text-gray-700">
           Para participar en la rifa, por favor selecciona un método de pago.
