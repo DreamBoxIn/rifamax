@@ -6,8 +6,8 @@ export default function PaymentSuccess() {
   const { number } = router.query;
 
   useEffect(() => {
-    if (number) {
-      fetch('https://rifapomelo.vercel.app/api/confirm-purchase', {
+    if (number && typeof number === 'string') {
+      fetch('/api/purchase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -17,20 +17,22 @@ export default function PaymentSuccess() {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert('Compra confirmada. Número bloqueado.');
+            console.log('Número de rifa comprado exitosamente.');
           } else {
-            alert('Error: Número no encontrado en los vendidos.');
+            console.error('Error: Número no disponible.');
           }
         });
     }
   }, [number]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 to-orange-200 p-6">
-      <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-700">¡Gracias por tu compra!</h1>
-      <p className="text-lg text-center mb-6 text-gray-700">
-        Tu número de rifa ha sido comprado exitosamente.
-      </p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-100 to-green-200 p-6">
+      <div className="max-w-xl w-full bg-white rounded-lg shadow-lg p-6">
+        <h1 className="text-4xl font-extrabold text-center mb-4 text-green-700">Pago Exitoso</h1>
+        <p className="text-lg text-center mb-6 text-gray-700">
+          Gracias por tu compra. Tu número de rifa ha sido registrado.
+        </p>
+      </div>
     </div>
   );
 }
