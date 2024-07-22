@@ -6,13 +6,22 @@ export default function PaymentSuccess() {
   const { number } = router.query;
 
   useEffect(() => {
-    if (number && typeof number === 'string') {
+    let numberStr: string;
+    if (Array.isArray(number)) {
+      numberStr = number[0];
+    } else if (typeof number === 'string') {
+      numberStr = number;
+    } else {
+      numberStr = '';
+    }
+
+    if (numberStr) {
       fetch('/api/purchase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ number: parseInt(number, 10) }),
+        body: JSON.stringify({ number: parseInt(numberStr, 10) }),
       })
         .then(response => response.json())
         .then(data => {
