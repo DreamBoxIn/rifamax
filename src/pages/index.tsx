@@ -50,14 +50,15 @@ export default function Home() {
         </p>
         <div className="flex justify-center mb-6">
           <Link href="/buy-ticket" className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-            Comprar Ticket de Rifa
+            Comprar Nº de Rifa x $5.000
           </Link>
         </div>
         <div className="text-center text-gray-700">
-          <p className="text-lg font-semibold">Para más información, contáctanos:</p>
-          <p className="mt-2">Javiera - Tel: 123-456-7890</p>
+          <p className="text-lg font-semibold">Para más información:</p>
+          <p className="mt-2 font-semibold">Javi Rivera</p>
+          <a href="https://wa.me/56994798310" className="text-green-500 hover:underline">+569 9479 8310</a>
           <p className="mt-1">
-            Email: <a href="mailto:javiera@example.com" className="text-orange-500 hover:underline">javiera@example.com</a>
+            <a href="mailto:javiera@example.com" className="text-orange-500 hover:underline">javiera@example.com</a>
           </p>
         </div>
         <div className="mt-8">
