@@ -1,4 +1,3 @@
-// src/pages/payment-success.tsx
 import TicketNumbers from '../components/TicketNumbers';
 
 export default function PaymentSuccess() {

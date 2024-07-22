@@ -1,5 +1,4 @@
-// src/pages/buy-ticket.tsx
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 import TicketNumbers from '../components/TicketNumbers';
 
@@ -19,8 +18,8 @@ export default function BuyTicket() {
     setShowBankTransferModal(false);
   };
 
-  const handleOutsideClick = (e) => {
-    if (e.target.id === 'bank-transfer-modal') {
+  const handleOutsideClick = (e: MouseEvent) => {
+    if ((e.target as HTMLElement).id === 'bank-transfer-modal') {
       handleCloseModal();
     }
   };
@@ -77,14 +76,12 @@ export default function BuyTicket() {
             <p className="text-gray-700 mb-4">Titular: Nombre del Titular</p>
             <p className="text-gray-700 mb-4">RUT: 12.345.678-9</p>
             <p className="text-gray-700 mb-6">Correo: ejemplo@banco.cl</p>
-            <div className="flex justify-center mb-6">
-              <button
-                onClick={handleWhatsAppRedirect}
-                className="bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-              >
-                Enviar Comprobante por WhatsApp
-              </button>
-            </div>
+            <button
+              onClick={handleWhatsAppRedirect}
+              className="bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 mb-6"
+            >
+              Enviar Comprobante por WhatsApp
+            </button>
             <TicketNumbers />
             <div className="flex justify-center mt-6">
               <button
