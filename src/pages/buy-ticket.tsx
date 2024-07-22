@@ -27,7 +27,7 @@ export default function BuyTicket() {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          window.location.href = `https://mpago.la/2gsf4Zk?number=${selectedNumber}`;
+          window.location.href = data.paymentLink;
         } else {
           alert('Error: Número no disponible.');
         }
