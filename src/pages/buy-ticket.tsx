@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export default function BuyTicket() {
-  const [selectedNumber, setSelectedNumber] = useState(null);
-  const [availableNumbers, setAvailableNumbers] = useState([]);
+  const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
+  const [availableNumbers, setAvailableNumbers] = useState<number[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function BuyTicket() {
       .then(data => setAvailableNumbers(data));
   }, []);
 
-  const handleSelectNumber = (number) => {
+  const handleSelectNumber = (number: number) => {
     setSelectedNumber(number);
   };
 
@@ -52,13 +52,16 @@ export default function BuyTicket() {
             </button>
           ))}
         </div>
-        <button
-          onClick={handlePurchase}
-          className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-          disabled={!selectedNumber}
-        >
-          Comprar Número {selectedNumber}
-        </button>
+        {selectedNumber && (
+          <form action={`https://mpago.la/2gsf4Zk?number=${selectedNumber}`} method="GET">
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
+            >
+              Comprar Número {selectedNumber}
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
