@@ -59,7 +59,7 @@ export default function BuyTicket() {
           </button>
         </div>
         <p className="text-lg text-center mt-6 text-gray-700">
-          Una vez realizado el pago, serás redirigido para seleccionar tu número de rifa disponible.
+          Una vez realizado el pago, debes seguir las instrucciones para compartir el comprobante y el número que quieres por WhatsApp.
         </p>
       </div>
 

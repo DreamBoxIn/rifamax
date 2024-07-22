@@ -49,7 +49,7 @@ export default function Home() {
           Pomelo sufrió una fractura en su pierna y necesita nuestra ayuda para su operación. Participa en la rifa y contribuye a su recuperación.
         </p>
         <div className="flex justify-center mb-6">
-          <Link href="/buy-ticket" className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
+          <Link href="/buy-ticket" className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 text-center">
             Comprar Nº de Rifa x $5.000
           </Link>
         </div>
