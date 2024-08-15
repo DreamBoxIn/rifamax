@@ -25,12 +25,12 @@ export default function BuyTicket() {
   };
 
   const handleWhatsAppRedirect = () => {
-    const walinkURL = `https://wa.me/56994798310`;
+    const walinkURL = `https://wa.me/56990115839`;
     window.location.href = walinkURL;
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 to-orange-200 p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 to-green-200 p-6">
       <div className="relative max-w-xl w-full bg-white rounded-lg shadow-lg p-6">
         <button
           onClick={() => router.push('/')}
@@ -40,26 +40,26 @@ export default function BuyTicket() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-700">Comprar Ticket de Rifa</h1>
+        <h1 className="text-4xl font-extrabold text-center mb-4 text-green-700">Comprar Ticket</h1>
         <p className="text-lg text-center mb-6 text-gray-700">
           Para participar en la rifa, por favor selecciona un método de pago.
         </p>
         <div className="flex flex-col sm:flex-row justify-center mb-4">
           <button
             onClick={handlePurchase}
-            className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 mb-2 sm:mb-0 sm:mr-2"
+            className="bg-gradient-to-r from-green-500 to-green-500 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 mb-2 sm:mb-0 sm:mr-2"
           >
             Pagar con Tarjeta<br />(Crédito/Débito)
           </button>
           <button
             onClick={handleBankTransfer}
-            className="bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 sm:ml-2"
+            className="bg-gradient-to-r from-yellow-500 to-green-700 text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 sm:ml-2"
           >
             Transferencia Bancaria
           </button>
         </div>
-        <p className="text-lg text-center mt-6 text-gray-700">
-          Una vez realizado el pago, debes seguir las instrucciones para compartir el comprobante y el número que quieres por WhatsApp.
+        <p className="text-lg text-center mt-6 text-red-500">
+          **Una vez realizado el pago, debes seguir las instrucciones para compartir el comprobante y el número que quieres por WhatsApp.**
         </p>
       </div>
 
